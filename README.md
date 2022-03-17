@@ -5,10 +5,11 @@ This is a useful test for combining the p-values from multiple dependent tests, 
 
 Included is 
 
-- Basic hmp test (hmp.stat(..))
-- Worst-case upper bound (hmp.upper_bound(..))
-- Asymptotically exact hmp test (hmp.hmp(..))
+- Basic hmp test (*hmp.stat(..)*)
+- Worst-case upper bound (*hmp.upper_bound(..)*)
+- Asymptotically exact hmp test (*hmp.hmp(..)*)
 
+**hmp.hmp** should be preferred wherever possible
 
 Example usage
 
@@ -22,7 +23,7 @@ p_values = [0.049] *  L
 
 print(hmp.stat(p_values)) # Basic (0.049)
 print(hmp.upper_bound(p_values)) # Overly conservative worst-case (0.521)
-print(hmp.hmp(p_values)) # Exact (0.468)
+print(hmp.hmp(p_values)) # Exact (0.0468)
 
 # Now lets try something that should definetly be rejected, all tests >> alpha
 p_values = [0.5] *  L 
@@ -30,6 +31,11 @@ p_values = [0.5] *  L
 print(hmp.stat(p_values)) # Basic (0.5)
 print(hmp.upper_bound(p_values)) # Over Conservative (>1)
 print(hmp.hmp(p_values)) # Exact (0.654)
+```
+
+If you want to pass weights in, they can be passed to any of the methods. Weights must be non-negative and sum to 1.
+```python
+hmp.hmp(p_values, weights=[1/L] * L) # Uniform weights
 ```
 
 
