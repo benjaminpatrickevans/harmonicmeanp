@@ -1,7 +1,7 @@
 # The harmonic mean p-value for combining dependent tests 
 ## A python implementation of harmonicmeanp
 
-This is a useful test for combining the p-values from multiple dependent tests, however, I could not find any python implementations so I wrote my own.
+The harmonic mean p-value (hmp) is a useful test for combining the p-values from multiple dependent tests, however, I could not find any python implementations so I wrote my own.
 
 Included is 
 
