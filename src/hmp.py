@@ -55,7 +55,7 @@ def _landau_density(x, mu, sigma):
     for example, using pylandau. Here I have used a naive implementation to keep dependencies small.
     """
     fn = lambda t:  np.exp(-t * ((x-mu)/sigma) - (2/np.pi) * t * np.log(t)) * np.sin(2 * t)
-    return 1 / (mu * sigma) * integrate.quad(fn, 0, np.inf)[0]  # Note: may need to increase upper bound for sub intervals ('limit' keyword for quad)
+    return 1 / (np.pi * sigma) * integrate.quad(fn, 0, np.inf)[0]  # Note: may need to increase upper bound for sub intervals ('limit' keyword for quad)
 
 
 def hmp(p_values, weights=None):
